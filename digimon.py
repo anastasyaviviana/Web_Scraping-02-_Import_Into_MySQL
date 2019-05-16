@@ -35,20 +35,19 @@ writer=csv.writer(datadigimon)
 writer.writerow(["name", "picture"])
 writer.writerows(alldata)
 
-# #import to mysql
-# mydb = MySQLdb.connect(host='localhost',
-#     user=nama,
-#     passwd=passwd,
-#     db='digimon',
-#     autocommit=True,
-#     charset = 'utf8')
-# cursor = mydb.cursor()
+#import to mysql
+mydb = MySQLdb.connect(host='localhost',
+    user=nama,
+    passwd=passwd,
+    db='digimon',
+    autocommit=True,
+    charset = 'utf8')
+cursor = mydb.cursor()
 
-# for i in range(len(alldata)):
-#     name=alldata[i][0]
-#     picture=alldata[i][1]
-#     sql = 'INSERT INTO digimon (name, picture) VALUES(%s,%s)'
+for i in range(len(alldata)):
+    name=alldata[i][0]
+    picture=alldata[i][1]
+    sql = 'INSERT INTO digimon (name, picture) VALUES(%s,%s)'
     
-#     cursor.execute(sql, (name, picture))
-#     mydb.commit()
-   
+    cursor.execute(sql, (name, picture))
+    mydb.commit()
